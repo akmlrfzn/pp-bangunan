@@ -16,6 +16,16 @@
     <div class="flex flex-1 items-center justify-end md:justify-between">
       <nav aria-label="Global" class="hidden md:block">
         <ul class="flex items-center gap-6 text-sm">
+          
+          <li>
+            <a
+              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              href="<?= base_url('/') ?>"
+            >
+              Home
+            </a>
+          </li>
+
           <li>
             <a
               class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -30,45 +40,11 @@
               class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
               href="#"
             >
-              Careers
+              Products
             </a>
           </li>
 
-          <li>
-            <a
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              href="#"
-            >
-              History
-            </a>
-          </li>
-
-          <li>
-            <a
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              href="#"
-            >
-              Services
-            </a>
-          </li>
-
-          <li>
-            <a
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              href="#"
-            >
-              Projects
-            </a>
-          </li>
-
-          <li>
-            <a
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              href="#"
-            >
-              Blog
-            </a>
-          </li>
+          
         </ul>
       </nav>
 
@@ -76,7 +52,7 @@
         <div class="sm:flex sm:gap-4">
             <?php if (auth()->loggedIn()): ?>
 
-            <a href="<?= base_url('/cart/checkout') ?>" class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 dark:hover:bg-teal-500">
+            <a href="<?= base_url('/cart') ?>" class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 dark:hover:bg-teal-500">
               Checkout
             </a>
 

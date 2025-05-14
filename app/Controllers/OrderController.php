@@ -32,13 +32,14 @@ class OrderController extends BaseController
 
         foreach ($cart as $productId => $quantity) {
             $product = $this->productModel->find($productId);
-            if ($product) {
-                $product->quantity = $quantity;
-                $product->subtotal = $product->price * $quantity;
-                $products[] = $product;
-                $total += $product->subtotal;
+                if ($product) {
+                    $product['quantity'] = $quantity;
+                    $product['subtotal'] = $product['price'] * $quantity;
+                    $products[] = $product;
+                    $total += $product['subtotal'];
+                }
             }
-        }
+
 
         return view('carts/index', ['products' => $products, 'total' => $total]);
     }
@@ -59,7 +60,7 @@ class OrderController extends BaseController
     }
 
     // Checkout langsung success
-    public function checkout()
+    public function checkout_process()
     {
         $cart = session()->get('cart') ?? [];
         if (empty($cart)) {
@@ -73,13 +74,13 @@ class OrderController extends BaseController
             $product = $this->productModel->find($productId);
             if (!$product) continue;
 
-            $subtotal = $product->price * $quantity;
+            $subtotal = $product['price'] * $quantity;
             $total += $subtotal;
 
             $orderItems[] = [
                 'product_id' => $productId,
                 'quantity'   => $quantity,
-                'price'      => $product->price,
+                'price'      => $product['price'],
             ];
         }
 
@@ -98,6 +99,39 @@ class OrderController extends BaseController
         session()->remove('cart');
         return redirect()->to('/cart/success');
     }
+
+    public function removeFromCart($productId)
+    {
+        $cart = session()->get('cart') ?? [];
+
+        if (isset($cart[$productId])) {
+            unset($cart[$productId]);
+            session()->set('cart', $cart);
+        }
+
+        return redirect()->to('/cart')->with('success', 'Item berhasil dihapus dari keranjang.');
+    }
+
+    public function updateCart($productId)
+    {
+        $quantity = (int) $this->request->getPost('quantity');
+
+        if ($quantity < 1) {
+            return redirect()->to('/cart')->with('error', 'Quantity tidak boleh kurang dari 1.');
+        }
+
+        $cart = session()->get('cart') ?? [];
+
+        if (isset($cart[$productId])) {
+            $cart[$productId] = $quantity;
+            session()->set('cart', $cart);
+        }
+
+        return redirect()->to('/cart')->with('success', 'Quantity berhasil diperbarui.');
+    }
+
+
+
 
     public function success()
     {

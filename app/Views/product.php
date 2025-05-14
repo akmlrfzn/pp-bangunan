@@ -15,42 +15,6 @@
 <!-- HEADER: MENU + HEROE SECTION -->
 <?= view('components/_navbar') ?> 
 
-<!-- Hero Section  -->
-
-<section class="relative bg-cover bg-center bg-no-repeat lg:h-screen" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
-  <div class="absolute inset-0 bg-black/60"></div>
-
-  <div class="relative mx-auto w-full max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-    <div class="mx-auto max-w-prose text-center text-white">
-      <h1 class="text-4xl font-bold sm:text-5xl">
-        Bangun Impian Anda Bersama
-        <strong class="text-yellow-400"> Toko Bangunan Kami </strong>
-      </h1>
-
-      <p class="mt-4 text-base sm:text-lg/relaxed text-pretty">
-        Temukan berbagai material dan perlengkapan bangunan terbaik untuk rumah, kantor, maupun proyek Anda. Kualitas terjamin dan harga bersaing!
-      </p>
-
-      <div class="mt-6 flex justify-center gap-4">
-        <a
-          class="inline-block rounded border border-yellow-500 bg-yellow-500 px-5 py-3 font-medium text-black shadow-sm transition-colors hover:bg-yellow-600"
-          href="<?= base_url('/products') ?>"
-        >
-          Belanja Sekarang
-        </a>
-
-        <a
-          class="inline-block rounded border border-white px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-white hover:text-black"
-          href="<?= base_url('/about') ?>"
-        >
-          Tentang Kami
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Hero Section  -->
 
 <!-- Product  -->
 <section id="product">

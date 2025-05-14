@@ -10,6 +10,7 @@ $routes->get('/', 'Home::index');
 service('auth')->routes($routes);
 
 $routes->get('dashboard', 'DashboardController::index');
+$routes->get('product', 'ProductPage::index');
 
 // $routes->get('products', 'ProductController::index');
 
@@ -22,7 +23,13 @@ $routes->post('/categories/update/(:num)', 'CategoryController::update/$1');
 $routes->get('/categories/delete/(:num)', 'CategoryController::delete/$1');
 
 // 
-$routes->post('cart/add/(:num)', 'Cart::add/$1');
+// $routes->post('cart/add/(:num)', 'Cart::add/$1');
+$routes->get('/cart', 'OrderController::cart');
+$routes->post('/cart/checkout_process', 'OrderController::checkout_process');
+$routes->get('/cart/success', 'OrderController::success');
+$routes->post('/cart/remove/(:num)', 'OrderController::removeFromCart/$1');
+$routes->post('/cart/update/(:num)', 'OrderController::updateCart/$1');
+
 
 // Order Routes
 $routes->get('/cart', 'OrderController::cart');
