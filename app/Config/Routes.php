@@ -21,6 +21,14 @@ $routes->get('/categories/edit/(:num)', 'CategoryController::edit/$1');
 $routes->post('/categories/update/(:num)', 'CategoryController::update/$1');
 $routes->get('/categories/delete/(:num)', 'CategoryController::delete/$1');
 
+// 
+$routes->post('cart/add/(:num)', 'Cart::add/$1');
+
+// Order Routes
+$routes->get('/cart', 'OrderController::cart');
+$routes->get('/cart/add/(:num)', 'OrderController::addToCart/$1');
+$routes->get('/cart/checkout', 'OrderController::checkout');
+$routes->get('/cart/success', 'OrderController::success');
 
 
 $routes->group('products', function($routes) {

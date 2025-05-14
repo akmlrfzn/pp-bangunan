@@ -53,7 +53,7 @@
 <!-- Hero Section  -->
 
 <!-- Product  -->
-<section id="product" >
+<section id="product">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <header class="text-center">
       <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Product Collection</h2>
@@ -63,23 +63,31 @@
     </header>
 
     <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <?php foreach ($products as $products): ?>
-        <li>
-          <a href="#" class="group block overflow-hidden">
-            <img
-              src="<?= base_url('uploads/products/' . $products['image']) ?>"
-              alt="<?= esc($products['name']) ?>"
-              class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-            />
+      <?php foreach ($products as $product): ?>
+        <li class="relative group border rounded overflow-hidden bg-white shadow">
+          <a href="#" class="block overflow-hidden">
+            <div class="relative">
+              <img
+                src="<?= base_url('uploads/products/' . $product['image']) ?>"
+                alt="<?= esc($product['name']) ?>"
+                class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+              />
 
-            <div class="relative bg-white pt-3">
-              <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-                <?= esc($products['name']) ?>
+              <!-- Tombol Tambah ke Keranjang -->
+              <div class="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black/40">
+                <a href="<?= base_url('cart/add/' . $product['id']) ?>"
+                  class="mb-4 inline-block rounded bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 transition">
+                  Tambah ke Keranjang
+                </a>
+              </div>
+            </div>
+
+            <div class="relative bg-white pt-3 pb-5 px-2">
+              <h3 class="text-sm font-semibold text-gray-800">
+                <?= esc($product['name']) ?>
               </h3>
-
-              <p class="mt-2">
-                <span class="sr-only"> Regular Price </span>
-                <span class="tracking-wider text-gray-900">Rp <?= number_format($products['price'], 0, ',', '.') ?></span>
+              <p class="mt-2 text-gray-900 font-bold">
+                Rp <?= number_format($product['price'], 0, ',', '.') ?>
               </p>
             </div>
           </a>
