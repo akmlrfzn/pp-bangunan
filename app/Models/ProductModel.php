@@ -6,8 +6,10 @@ use CodeIgniter\Model;
 
 class ProductModel extends Model
 {
-    protected $table      = 'products';
+    protected $table = 'products';
     protected $primaryKey = 'id';
-
-    protected $allowedFields = ['name', 'price', 'stock'];
+    protected $allowedFields = [
+        'name', 'description', 'price', 'stock', 'image','category_id', 
+    ];
+    protected $useTimestamps = true;
 }

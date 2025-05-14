@@ -17,143 +17,78 @@
 
 <!-- Hero Section  -->
 
-<section class="bg-white lg:grid lg:h-screen lg:place-content-center dark:bg-gray-900">
-  <div class="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-    <div class="mx-auto max-w-prose text-center">
-      <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl dark:text-white">
-        Understand user flow and
-        <strong class="text-indigo-600"> increase </strong>
-        conversions
+<section class="relative bg-cover bg-center bg-no-repeat lg:h-screen" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <div class="relative mx-auto w-full max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+    <div class="mx-auto max-w-prose text-center text-white">
+      <h1 class="text-4xl font-bold sm:text-5xl">
+        Bangun Impian Anda Bersama
+        <strong class="text-yellow-400"> Toko Bangunan Kami </strong>
       </h1>
 
-      <p class="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed dark:text-gray-200">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi. Natus, provident
-        accusamus impedit minima harum corporis iusto.
+      <p class="mt-4 text-base sm:text-lg/relaxed text-pretty">
+        Temukan berbagai material dan perlengkapan bangunan terbaik untuk rumah, kantor, maupun proyek Anda. Kualitas terjamin dan harga bersaing!
       </p>
 
-      <div class="mt-4 flex justify-center gap-4 sm:mt-6">
+      <div class="mt-6 flex justify-center gap-4">
         <a
-          class="inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700"
-          href="#"
+          class="inline-block rounded border border-yellow-500 bg-yellow-500 px-5 py-3 font-medium text-black shadow-sm transition-colors hover:bg-yellow-600"
+          href="<?= base_url('/products') ?>"
         >
-          Get Started
+          Belanja Sekarang
         </a>
 
         <a
-          class="inline-block rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white"
-          href="#"
+          class="inline-block rounded border border-white px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-white hover:text-black"
+          href="<?= base_url('/about') ?>"
         >
-          Learn More
+          Tentang Kami
         </a>
       </div>
     </div>
   </div>
 </section>
+
 <!-- Hero Section  -->
 
 <!-- Product  -->
-<section>
+<section id="product" >
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <header class="text-center">
       <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Product Collection</h2>
-
       <p class="mx-auto mt-4 max-w-md text-gray-500">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque praesentium cumque iure
-        dicta incidunt est ipsam, officia dolor fugit natus?
+        Temukan berbagai produk menarik dengan kualitas terbaik untuk kebutuhan Anda.
       </p>
     </header>
 
     <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <li>
-        <a href="#" class="group block overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-            class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-          />
+      <?php foreach ($products as $products): ?>
+        <li>
+          <a href="#" class="group block overflow-hidden">
+            <img
+              src="<?= base_url('uploads/products/' . $products['image']) ?>"
+              alt="<?= esc($products['name']) ?>"
+              class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+            />
 
-          <div class="relative bg-white pt-3">
-            <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-              Basic Tee
-            </h3>
+            <div class="relative bg-white pt-3">
+              <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                <?= esc($products['name']) ?>
+              </h3>
 
-            <p class="mt-2">
-              <span class="sr-only"> Regular Price </span>
-
-              <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
-            </p>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#" class="group block overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-            class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-          />
-
-          <div class="relative bg-white pt-3">
-            <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-              Basic Tee
-            </h3>
-
-            <p class="mt-2">
-              <span class="sr-only"> Regular Price </span>
-
-              <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
-            </p>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#" class="group block overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-            class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-          />
-
-          <div class="relative bg-white pt-3">
-            <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-              Basic Tee
-            </h3>
-
-            <p class="mt-2">
-              <span class="sr-only"> Regular Price </span>
-
-              <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
-            </p>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#" class="group block overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-            class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-          />
-
-          <div class="relative bg-white pt-3">
-            <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-              Basic Tee
-            </h3>
-
-            <p class="mt-2">
-              <span class="sr-only"> Regular Price </span>
-
-              <span class="tracking-wider text-gray-900"> £24.00 GBP </span>
-            </p>
-          </div>
-        </a>
-      </li>
+              <p class="mt-2">
+                <span class="sr-only"> Regular Price </span>
+                <span class="tracking-wider text-gray-900">Rp <?= number_format($products['price'], 0, ',', '.') ?></span>
+              </p>
+            </div>
+          </a>
+        </li>
+      <?php endforeach; ?>
     </ul>
   </div>
 </section>
+
 
 <!-- Product  -->
 
